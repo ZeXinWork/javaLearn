@@ -1140,3 +1140,327 @@ List<? super Animal> //Animal类及其父类
 **程序是一个可执行的静态文件，程序执行时以进程的形式留在操作系统当中，在进程当中又可以开启多个线程，线程相当于是进程的一个任务，线程的执行时间是由CPU决定的，CPU划出时间快来执行，在java当中，java他是多线程程序，一个java进程至少包含main线程和垃圾处理收集线程**
 
 ### 2、创建多线程的三种方式
+
+#### a、继承Thread类
+
+**在开发中不推荐，因为类是单继承的**
+
+```java
+package com.imooc.thread;
+
+import java.util.Random;
+
+public class ThreadSample1 {
+
+    class RunTest extends Thread{
+        @Override
+        public void run() {
+
+            int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9,10};
+            for (int j = 0; j < arr1.length-1; j++) {
+                int i = new Random().nextInt(10);
+                try {
+                    Thread.sleep(1000);
+                    System.out.println(this.getName() + arr1[i]);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void runStart(){
+        RunTest runTest = new RunTest();
+        RunTest runTest2 = new RunTest();
+
+        runTest.setName("小明");
+        runTest2.setName("小张");
+        runTest.start();
+        runTest2.start();
+    }
+
+
+    public static void main(String[] args) {
+
+        new ThreadSample1().runStart();
+    }
+}
+```
+
+#### b、Runnable接口
+
+```java
+package com.imooc.thread;
+
+import java.util.Random;
+
+public class ThreadSample2 {
+    class Runner implements  Runnable{
+        @Override
+        public void run() {
+            Integer index = new Random().nextInt(10);
+
+            for (int i = 0; i <10; i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(Thread.currentThread().getName() + "已经跑了" + (i + 1) * index);
+            }
+        }
+    }
+    public void  startTest(){
+        Runner runner = new Runner();
+        Thread thread = new Thread(runner);
+        thread.setName("小明");
+        thread.start();
+    }
+    public static void main(String[] args) {
+        new ThreadSample2().startTest();
+    }
+}
+
+```
+
+#### c、Callable接口
+
+```java
+package com.imooc.thread;
+
+import java.util.Random;
+import java.util.concurrent.*;
+
+public class ThreadSample3 {
+
+    class Runner implements Callable<Integer>{
+
+        @Override
+        public Integer call() throws Exception {
+            int i = new Random().nextInt(10);
+            if(i/2==0){
+                return 0;
+            }
+            return 1;
+        }
+    }
+
+    public void StartTest() {
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        Runner runner = new Runner();
+        Runner runner2 = new Runner();
+        Runner runner3 = new Runner();
+        Future<Integer> submit = executorService.submit(runner);
+        Future<Integer> submit1 = executorService.submit(runner2);
+        Future<Integer> submit2 = executorService.submit(runner3);
+        executorService.shutdown();
+
+
+        try {System.out.println(submit.get());
+            System.out.println(submit1.get());
+            System.out.println(submit2.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        new ThreadSample3().StartTest();
+
+    }
+}
+
+```
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/622a063f-78e0-4604-b2b6-5be4868edcb6.png)
+
+### 3、线程同步
+
+#### a、概念
+
+**多个线程对象去争夺同一个对象**
+
+#### b、用synchronized线程锁解决同步问题
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/1ad0f7fb-aa4b-4e2c-8578-a4cbd33b083e.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/d5cdd825-1251-42e8-9249-154777cbbc5f.png)
+
+```java
+package com.imooc.sync;
+
+
+public class SyncTest1 {
+    Object lock = new Object();
+    class printClass {
+        //代码块形式
+        public void print() throws InterruptedException {
+            synchronized (lock){
+                Thread.sleep(1000);
+                System.out.println("1");
+                Thread.sleep(1000);
+                System.out.println("2");
+                Thread.sleep(1000);
+                System.out.println("3");
+                Thread.sleep(1000);
+                System.out.println("4");
+            }
+
+        }
+        
+        
+         public synchronized void  print2() throws InterruptedException {
+            Thread.sleep(1000);
+            System.out.println("1");
+            Thread.sleep(1000);
+            System.out.println("2");
+            Thread.sleep(1000);
+            System.out.println("3");
+            Thread.sleep(1000);
+            System.out.println("4");
+        }
+
+        
+         public synchronized static void print3() throws InterruptedException{ 
+            Thread.sleep(1000);
+            System.out.println("1");
+            Thread.sleep(1000);
+            System.out.println("2");
+            Thread.sleep(1000);
+            System.out.println("3");
+            Thread.sleep(1000);
+            System.out.println("4");
+        }
+    }
+
+    class Runner implements Runnable{
+        printClass pri;
+        @Override
+        public void run() {
+            try {
+                pri.print();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void start(){
+        printClass printClass = new printClass();
+        for (int i = 0; i < 10; i++) {
+            Runner runner = new Runner();
+            runner.pri = printClass;
+            Thread thread = new Thread(runner);
+            thread.start();
+        }
+    }
+    public static void main(String[] args) {
+        new SyncTest1().start();
+    }
+}
+```
+
+#### c、线程安全案例
+
+```java
+// goods
+package com.imooc.sync;
+
+import com.imooc.sync.pojo.Counter;
+import com.imooc.sync.pojo.Custom;
+import com.imooc.sync.pojo.Goods;
+
+public class SyncTest2 {
+    public static void main(String[] args) throws InterruptedException {
+        Goods goods = new Goods();
+
+        for (int i = 0; i < 5; i++) {
+            Custom custom = new Custom();
+            custom.goods = goods;
+            Thread thread = new Thread(custom);
+            thread.start();
+
+        }
+        Thread.sleep(50);
+        System.out.println(Counter.counter);
+    }
+}
+//custom
+package com.imooc.sync.pojo;
+
+public class Custom implements Runnable {
+
+   public Goods goods;
+
+    @Override
+    public void run() {
+        goods.sale();
+    }
+}
+//custom
+package com.imooc.sync.pojo;
+
+public class Goods {
+    public synchronized void sale(){
+        if(Counter.counter>0){
+            System.out.println("用户购买成功");
+            Counter.counter--;
+        }else{
+            System.out.println("用户购买失败，库存不足");
+        }
+    }
+}
+
+
+//main
+package com.imooc.sync;
+
+import com.imooc.sync.pojo.Counter;
+import com.imooc.sync.pojo.Custom;
+import com.imooc.sync.pojo.Goods;
+
+public class SyncTest2 {
+    public static void main(String[] args) throws InterruptedException {
+        Goods goods = new Goods();//同一个对象
+
+        for (int i = 0; i < 5; i++) {
+            Custom custom = new Custom();
+            custom.goods = goods;
+            Thread thread = new Thread(custom);
+            thread.start();
+
+        }
+        Thread.sleep(50);
+        System.out.println(Counter.counter);
+    }
+}
+```
+
+#### d、线程池
+
+**JUC：java当中处理并发的包**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/590c97ee-206a-4ce7-a2ed-91978f7296eb.png)
+
+ **定长线程池**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/3377623a-1b72-4b0e-9718-33262e82c27b.png)
+
+**缓存线程池**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/cf4db739-aeab-4a9c-a2b0-4cd35e22d9f6.png)
+
+**单线线程池**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/52506a0d-e706-4f72-abc9-88453ff3d286.png)
+
+**延时线程池**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/2138c0ab-b480-47aa-ad44-8ef11f7c61f2.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/17fcc5dd-f863-4806-b057-d32f4d4b4a7f.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/b542d723-76a5-4893-95c2-c51d13f0f74d.png)
