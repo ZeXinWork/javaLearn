@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/Anonymous/Anonymous.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exception/Exception.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Generics/Generics.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObjectMulti/ObjectMulti.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arrayDemo/arrayDemo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/baozhuang/baozhuang.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/collection.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functionDemo/functionDemo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/objectP/objectP.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\apache-maven-3.8.4\maven_store" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.8.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2MWvkjhOupPyIRO0oJ3GByHCt6U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunManager" selected="应用程序.genericsTest">
+    <configuration name="ExceptionTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.test.ExceptionTest2" />
+      <module name="Exception" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExceptionTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.test.ExceptionTest3" />
+      <module name="Exception" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashMapSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.collection.map.HashMapSample" />
+      <module name="collection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.collection.map.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="genericsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.generics.test.genericsTest" />
+      <module name="Generics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.generics.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.test" />
+      <module name="baozhuang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.genericsTest" />
+        <item itemvalue="应用程序.HashMapSample" />
+        <item itemvalue="应用程序.test" />
+        <item itemvalue="应用程序.ExceptionTest3" />
+        <item itemvalue="应用程序.ExceptionTest2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="" />
+      <created>1677896297305</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677896297305</updated>
+      <workItem from="1677896298507" duration="1968000" />
+      <workItem from="1677898810880" duration="4229000" />
+      <workItem from="1677984725786" duration="7332000" />
+      <workItem from="1678113256081" duration="814000" />
+      <workItem from="1678201030480" duration="1735000" />
+      <workItem from="1678281524386" duration="153000" />
+      <workItem from="1678714865079" duration="2193000" />
+      <workItem from="1678808665029" duration="283000" />
+      <workItem from="1679108225862" duration="3860000" />
+      <workItem from="1679488788802" duration="1126000" />
+      <workItem from="1679580904935" duration="3271000" />
+      <workItem from="1679888468779" duration="641000" />
+      <workItem from="1679890080770" duration="13000" />
+      <workItem from="1679890123626" duration="70000" />
+      <workItem from="1679890208519" duration="488000" />
+      <workItem from="1679890712089" duration="76000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/objectP/src/com/imooc/school/Subject.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
