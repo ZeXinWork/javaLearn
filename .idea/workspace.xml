@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/Anonymous/Anonymous.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exception/Exception.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generics/Generics.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectMulti/ObjectMulti.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arrayDemo/arrayDemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baozhuang/baozhuang.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collection/collection.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functionDemo/functionDemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectP/objectP.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/IO/IO.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/IoSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/Thread.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/Thread.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Counter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Custom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Custom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objectP/objectP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/objectP/objectP.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,21 +57,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="模块" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37094018" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="应用程序.genericsTest">
-    <configuration name="ExceptionTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.imooc.test.ExceptionTest2" />
-      <module name="Exception" />
+  <component name="RunManager" selected="应用程序.IoSample">
+    <configuration name="IoSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.Io.IoSample" />
+      <module name="IO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.test.*" />
+          <option name="PATTERN" value="com.imooc.Io.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -73,12 +80,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.imooc.test.ExceptionTest3" />
-      <module name="Exception" />
+    <configuration name="SyncTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.sync.SyncTest1" />
+      <module name="Thread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.test.*" />
+          <option name="PATTERN" value="com.imooc.sync.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,12 +93,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashMapSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.imooc.collection.map.HashMapSample" />
-      <module name="collection" />
+    <configuration name="SyncTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.sync.SyncTest2" />
+      <module name="Thread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.collection.map.*" />
+          <option name="PATTERN" value="com.imooc.sync.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,12 +106,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="genericsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.imooc.generics.test.genericsTest" />
-      <module name="Generics" />
+    <configuration name="ThreadSample2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.thread.ThreadSample2" />
+      <module name="Thread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.generics.test.*" />
+          <option name="PATTERN" value="com.imooc.thread.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,12 +119,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.imooc.test" />
-      <module name="baozhuang" />
+    <configuration name="ThreadSample3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.imooc.thread.ThreadSample3" />
+      <module name="Thread" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.imooc.*" />
+          <option name="PATTERN" value="com.imooc.thread.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.genericsTest" />
-        <item itemvalue="应用程序.HashMapSample" />
-        <item itemvalue="应用程序.test" />
-        <item itemvalue="应用程序.ExceptionTest3" />
-        <item itemvalue="应用程序.ExceptionTest2" />
+        <item itemvalue="应用程序.IoSample" />
+        <item itemvalue="应用程序.SyncTest2" />
+        <item itemvalue="应用程序.SyncTest1" />
+        <item itemvalue="应用程序.ThreadSample3" />
+        <item itemvalue="应用程序.ThreadSample2" />
       </list>
     </recent_temporary>
   </component>
@@ -158,12 +165,27 @@
       <workItem from="1679890080770" duration="13000" />
       <workItem from="1679890123626" duration="70000" />
       <workItem from="1679890208519" duration="488000" />
-      <workItem from="1679890712089" duration="76000" />
+      <workItem from="1679890712089" duration="286000" />
+      <workItem from="1679919845707" duration="1413000" />
+      <workItem from="1679921684621" duration="6218000" />
+      <workItem from="1680011947559" duration="1358000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

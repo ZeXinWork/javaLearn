@@ -1464,3 +1464,43 @@ public class SyncTest2 {
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/17fcc5dd-f863-4806-b057-d32f4d4b4a7f.png)
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/27/b542d723-76a5-4893-95c2-c51d13f0f74d.png)
+
+## 九、IO实现文件的读写与操作
+
+java中操作文件的类都是File类
+
+```java
+package com.imooc.Io;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * 用来测试java IO类创建文件、目录的操作
+ */
+public class IoSample {
+    public static void main(String[] args) {
+        File file = new File("d:/b.txt");
+        try {
+            //在D盘创建b.text  createResult表示创建文件的结果
+            boolean createResult = file.createNewFile();
+            System.out.println("是否创建成功" + createResult);
+            //该文件是否存在
+            System.out.println("该文件是否存在" + file.exists());
+            //该文件是否为目录
+            System.out.println("该文件是否是目录" + file.isDirectory());
+            //该文件是否为文件
+            System.out.println("该文件是否是文件" + file.isFile());
+            //该文件的文件名
+            System.out.println("获取该文件的文件名" + file.getName());
+            //该文件的内容长度
+            System.out.println("该文件的内容长度" + file.length());
+            //是否删除成功
+            System.out.println("该文件是否删除成功" + file.delete());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
