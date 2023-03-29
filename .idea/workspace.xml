@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/IO/IO.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/IoSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="变更">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/Thread.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/Thread.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/SyncTest2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Counter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Custom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Custom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/sync/pojo/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Thread/src/com/imooc/thread/ThreadSample3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectP/objectP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/objectP/objectP.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,13 +48,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="模块" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/neibuClass" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37094018" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="应用程序.IoSample">
+  <component name="RunManager" selected="Application.IoSample">
     <configuration name="IoSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.imooc.Io.IoSample" />
       <module name="IO" />
@@ -132,15 +120,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="应用程序.IoSample" />
-        <item itemvalue="应用程序.SyncTest2" />
-        <item itemvalue="应用程序.SyncTest1" />
-        <item itemvalue="应用程序.ThreadSample3" />
-        <item itemvalue="应用程序.ThreadSample2" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -169,6 +148,9 @@
       <workItem from="1679919845707" duration="1413000" />
       <workItem from="1679921684621" duration="6218000" />
       <workItem from="1680011947559" duration="1358000" />
+      <workItem from="1680076705760" duration="100000" />
+      <workItem from="1680076815879" duration="31000" />
+      <workItem from="1680076855508" duration="109000" />
     </task>
     <servers />
   </component>
@@ -185,7 +167,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
