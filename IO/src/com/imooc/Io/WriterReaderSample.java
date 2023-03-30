@@ -17,6 +17,7 @@ public class WriterReaderSample {
         try {
             fw = new FileWriter(file);
             fw.write("这是一个测试");
+            fw.append("hhhh");
         } catch (IOException e) {
             e.printStackTrace();
         }finally {

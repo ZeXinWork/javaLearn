@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/StreamSample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/StreamSample2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/WriterReaderSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/TextFileSample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/URLConnectionSample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java.md" beforeDir="false" afterPath="$PROJECT_DIR$/Java.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intel/intel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/intel/intel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IO/src/com/imooc/Io/WriterReaderSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/WriterReaderSample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +43,14 @@
     </option>
   </component>
   <component name="ProjectId" id="2MWvkjhOupPyIRO0oJ3GByHCt6U" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -61,7 +62,7 @@
     <property name="project.structure.side.proportion" value="0.37094018" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Application.WriterReaderSample">
+  <component name="RunManager" selected="应用程序.StreamSample">
     <configuration name="StreamSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.imooc.Io.StreamSample" />
       <module name="IO" />
@@ -127,13 +128,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.WriterReaderSample" />
-        <item itemvalue="Application.StreamSample2" />
-        <item itemvalue="Application.StreamSample" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -166,6 +160,7 @@
       <workItem from="1680076815879" duration="31000" />
       <workItem from="1680076855508" duration="109000" />
       <workItem from="1680077236677" duration="7987000" />
+      <workItem from="1680181447693" duration="2948000" />
     </task>
     <servers />
   </component>
@@ -182,6 +177,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
