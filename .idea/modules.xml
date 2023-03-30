@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Anonymous/Anonymous.iml" filepath="$PROJECT_DIR$/Anonymous/Anonymous.iml" />
-      <module fileurl="file://$PROJECT_DIR$/collection/Collection.iml" filepath="$PROJECT_DIR$/collection/Collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exception/Exception.iml" filepath="$PROJECT_DIR$/Exception/Exception.iml" />
       <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/IO/IO.iml" filepath="$PROJECT_DIR$/IO/IO.iml" />
@@ -11,7 +10,10 @@
       <module fileurl="file://$PROJECT_DIR$/Thread/Thread.iml" filepath="$PROJECT_DIR$/Thread/Thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/arrayDemo/arrayDemo.iml" filepath="$PROJECT_DIR$/arrayDemo/arrayDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/baozhuang/baozhuang.iml" filepath="$PROJECT_DIR$/baozhuang/baozhuang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/collection/collection.iml" filepath="$PROJECT_DIR$/collection/collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/functionDemo/functionDemo.iml" filepath="$PROJECT_DIR$/functionDemo/functionDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/intel/intel.iml" filepath="$PROJECT_DIR$/intel/intel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/neibuClass/neibuClass.iml" filepath="$PROJECT_DIR$/neibuClass/neibuClass.iml" />
       <module fileurl="file://$PROJECT_DIR$/objectP/objectP.iml" filepath="$PROJECT_DIR$/objectP/objectP.iml" />
     </modules>
   </component>

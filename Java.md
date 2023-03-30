@@ -4,7 +4,7 @@
 
 ### 1、**java是一门面向对象的语言**
 
-### 2、**java是98年sun公司的,2010年呗orcle收购**
+### 2、**java是98年sun公司的,2010年被orcle收购**
 
 ### 3、**jdk、jre和jvm**
 
@@ -82,7 +82,7 @@ for (int i : intArray) {
 
 定义：**用来执行一系列代码的语句块**
 
-**主方法当中调用一个类的方法，必须先创建对应的类**
+**主方法当中调用一个类的方法，必须先创建对应的类**，**因为静态方法只能调用静态成员**
 
 ```java
 package com.immoc;
@@ -171,7 +171,7 @@ public class FunctionDemo1 {
 
 ```
 
-引用类型的传值是直接传地址进去，在方法当中i需改就会影响引用对象的值
+引用类型的传值是直接传地址进去，在方法当中修改就会影响引用对象的值
 
 ```java
    public void changeArr(int[] arr) {
@@ -1070,6 +1070,114 @@ public class ListLoopSample {
     }
 }
 ```
+
+#### 4、Set
+
+一种无序的，不可重复的动态数组
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/94741e5e-9c41-4884-bfca-d4d767d0b303.png)
+
+##### a、HashSet
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/86d8b6b2-374d-4cbe-a10b-aa0a5440d61c.png)
+
+```java
+package com.imooc.collection.set;
+
+import java.util.HashSet;
+
+public class HashSetSample {
+    public static void main(String[] args) {
+        HashSet<String> mobileList = new HashSet<>();
+        mobileList.add("999");
+        mobileList.add("123");
+        mobileList.add("456");
+        mobileList.add("123"); //不允许重复插入数据
+        mobileList.add("789");
+
+        boolean contains = mobileList.contains("789");
+        System.out.println(mobileList); //[123, 456, 789, 999] 无序
+        System.out.println(contains);
+    }
+}
+
+```
+
+为什么HashSet里的数据是精准唯一的？
+
+**用hashCode() 和 equals()方法判断**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/920da13d-bd35-480b-8b79-93af4cccf793.png)
+
+**什么是hashCode值？**
+
+**就是一个类的标识，不同类的标识不一样**
+
+**什么是hash？**
+
+**就是通过散列算法，把任意长度的数据变换成固定的输出**
+
+
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/4bda3c2d-7db8-4796-b219-dce121daec95.png)
+
+**HashSet排序就是根据Hash值进行排序，但不是Hash值越大越靠后**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/235290e4-3c6b-4121-a6ca-4db61679f9e0.png)
+
+##### b、LinkedHashSet
+
+**定义：实现了HashSet类，也是用Hash值进行存储位置，但是添加了链表的形式记录数据，因此是按插入的顺序提取数据**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/8581a6f7-7730-43ca-8dab-ba86c116e461.png)
+
+**底层的链表结构**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/a7ca0722-4c38-44db-848a-61fb81263fc3.png)
+
+```java
+package com.imooc.collection.set;
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetSample {
+    public static void main(String[] args) {
+        LinkedHashSet<String> strings = new LinkedHashSet<>();
+        strings.add("a");
+        strings.add("b");
+        strings.add("c");
+        strings.add("d");
+
+        System.out.println(strings); //[a, b, c, d]，因为有链表所以按插入顺序打印
+
+    }
+}
+
+```
+
+
+
+##### c、TreeSet
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/4ca340dd-9d81-4c7d-977c-41a66cf09197.png)
+
+#### 5、map
+
+定义：**map是一对具有映射关系的键值对组成，每组都是key-value的形式**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/42c011d7-d77a-4b85-a5be-e13ac8b8bb0c.png)
+
+**分类**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/ef280c75-54c8-4b7e-89ba-2e3458d903eb.png)
+
+a、HashMap
+
+1、无序存储
+
+2、也是根据hash值来决定数据存储的位置
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/03/22/83e1b5f1-2a26-4c7a-8e64-bc9706830a94.png)
 
 ## 七、泛型
 
