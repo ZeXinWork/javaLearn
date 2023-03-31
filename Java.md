@@ -1575,6 +1575,8 @@ public class SyncTest2 {
 
 ## 九、IO实现文件的读写与操作
 
+### 1、创建文件
+
 java中操作文件的类都是File类
 
 ```java
@@ -1612,3 +1614,310 @@ public class IoSample {
 }
 ```
 
+### 2、读取文件
+
+```java
+package com.imooc.Io;
+
+import java.io.*;
+
+/**
+ * 用来测试读取文件
+ */
+public class StreamSample {
+    public static void main(String[] args) {
+        FileInputStream inputStream = null;
+        try {
+            File f = new File("d:/b.txt");
+            f.createNewFile();
+            inputStream = new FileInputStream("d:/b.txt");
+
+            byte[] bytArray = new byte[1024];
+
+            int len;
+
+//            while ((len=inputStream.read(bytArray))!=-1){
+//   S             System.out.println(len);//文件长度
+//            }
+
+            while ((len = inputStream.read()) != -1) {
+                System.out.print((char)len); //读取一个字节
+            }
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+```
+
+3、写入文件
+
+```java
+package com.imooc.Io;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/**
+ * 用来测试文件输出(复制文件)
+ */
+
+public class StreamSample2 {
+    public static void main(String[] args) {
+        FileOutputStream fos = null;
+        FileInputStream fis = null;
+        int len = 0;
+        byte[] bty = new byte[1024];
+        try {
+            fos = new FileOutputStream("d:/c.txt");
+            fis = new FileInputStream("d:/b.txt");
+//            while ((len = fis.read())!=-1){  按照一个字节一个字节输出
+//                fos.write(len);
+//            }
+            while ((len = fis.read(bty))!=-1){
+                fos.write(bty,0,len); //按长度输出
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
+
+### 3、Reader和Writer
+
+```java
+ public void readTextFile(){
+        Reader reader = null;
+        try{
+            File file = new File("d:/test.txt");
+            //实例化Reader对象
+            reader = new FileReader(file);
+            int ch = 0;
+            //逐个字符读取
+            while((ch = reader.read()) != -1){
+                System.out.print((char)ch);//UTF-8编码集
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if(reader != null){
+                try {
+                    //关闭reader对象
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    /*Writer写入文本文件过程*/
+    public void writeTextFile(){
+        Writer writer = null;
+        try {
+            File file = new File("d:/test.txt");
+            //创建文件
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            //实例化writer对象
+            writer = new FileWriter(file);
+            //write()方法用于覆盖已有文件内容
+            writer.write("这是一个新文件New");
+            //append()方法用于在文件末尾追加
+            writer.append(":Append内容");
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            //关闭writer对象
+            if(writer != null){
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+```
+
+### 4、转换流
+
+```java
+public void isrSample(){
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        try{
+            File file = new File("d:/test.txt");
+            fis = new FileInputStream(file);
+            isr = new InputStreamReader(fis,"UTF-8");
+            StringBuffer buffer = new StringBuffer();
+            while(isr.ready()){
+                buffer.append((char)isr.read());
+            }
+            System.out.println(buffer.toString());
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if(isr != null){
+                try {
+                    isr.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(fis != null){
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    //利用OutputStreamWriter写入文本文件
+    public void oswSample() {
+        FileOutputStream fos = null;
+        OutputStreamWriter osw = null;
+        try {
+            File file = new File("D:/test.txt");
+            //创建文件
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            fos = new FileOutputStream(file);
+            osw = new OutputStreamWriter(fos, "UTF-8");
+            osw.write("这是一个新文件!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (osw != null) {
+                    osw.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+```
+
+### 5、Buffer流
+
+```java
+ public void readBuffer(){
+        Reader reader =null;
+        BufferedReader br = null;
+        try{
+            File file = new File("d:/FileSample.java");
+            reader = new FileReader(file);
+            br = new BufferedReader(reader);
+            String line = null;
+            while((line = br.readLine()) != null){
+                System.out.println(line); //一次打印出来
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if(reader!= null){
+                    reader.close();
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+```
+
+### 6、下载图片
+
+```java
+package com.imooc.Io;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class URLConnectionSample {
+    public static void main(String[] args) {
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            URL url = new URL("https://manongbiji.oss-cn-beijing.aliyuncs.com/images/weixin.jpg");
+            URLConnection connection = url.openConnection();
+            is = connection.getInputStream();
+            os = new FileOutputStream("d:/weixin.jpg");
+            byte[] bs = new byte[1024];
+            int len = 0;
+            while((len = is.read(bs)) != -1){
+                //System.out.println(len);
+                os.write(bs,0,len);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(os != null){
+                    os.close();
+                }
+
+                if (is != null) {
+                    is.close();
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+```
+
+### 8、总结
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/03/31/6dc890a0-f4c8-4aba-b1d3-852ce8fa4580.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/03/31/2eec62fc-a6f8-4502-a481-707d086b39d0.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/03/31/7eedbee2-43bd-4327-b818-51cd1986168b.png)
