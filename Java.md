@@ -1914,10 +1914,100 @@ public class URLConnectionSample {
 
 ```
 
-### 8、总结
+### 8、propertie配置文件
+
+### 9、总结
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/03/31/6dc890a0-f4c8-4aba-b1d3-852ce8fa4580.png)
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/03/31/2eec62fc-a6f8-4502-a481-707d086b39d0.png)
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/03/31/7eedbee2-43bd-4327-b818-51cd1986168b.png)
+
+## 十、MySQL数据库
+
+### 1、什么是数据库？
+
+ **数据库为我们提供了数据读写的服务**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/01/6a09b6ac-cb5c-4d1e-8262-aa4a6c8ec2f7.png)
+
+### 2、关系型数据库
+
+**数据分门别类地存放在不同的文件里，彼此之间又有关联关系可以找到**
+
+ ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/01/cb8ed061-5c7f-4718-8ff9-ab76bbc84540.png)
+
+### 3、主流关系型数据库
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/01/1bfc96d2-59c7-4e79-b780-b8a28caa9afa.png)
+
+### 4、非关系型数据库（Redis/MongoDB）
+
+**非关系型数据库也是讲数据分门别类的放在不同的文件当中，但彼此之间没有关联关系**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/01/a1512a51-6ecb-41c0-88f9-40efef367853.png)
+
+### 5、逻辑库与数据表的管理
+
+### 6、字段约束
+
+#### 1、数据库范式
+
+​       **原子性：一条数据的字段必须保证不能拆分**
+
+​       ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/8244da41-c5cb-40d6-a722-61e5ea08b8be.png)
+
+​       **唯一性：一条数据必须具有可区分的字段**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/11b5a8ae-fc14-42a2-a349-6e5fceb97b6f.png)
+
+​       **依赖性：一条数据的其他字段必须依赖主键**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/f65f97b2-57bd-4b53-98e3-7d8eddb66fc7.png)
+
+**主键约束** **primary key**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/adad55ac-865e-4f48-8eae-d440fccb5046.png)
+
+**非空约束**  **NOT NULL**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/7c682403-6531-4261-aee1-ffcb259bda6d.png)
+
+**唯一约束** **UNIQUE**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/3a6fe020-2a28-4e60-950a-7e104d36e3ed.png)
+
+**外键约束**  **FOREIGN KEY**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/14d03588-9012-4a5f-9df9-f1f3985cbb48.png)
+
+**为什么不使用外键约束？**
+
+**因为如果另外一张表关联了这个数据，那么就不能删除了**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/a0acfd60-5447-42da-9e31-14bf19bcf29a.png)
+
+### 7、索引
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/05/f128cbc0-a00a-4295-9dd9-3fd17ac71f58.png)
+
+```mysql
+use imooc
+
+CREATE TABLE t_teacher(
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(20) NOT NULL,
+tel CHAR(11) NOT NULL UNIQUE,
+married BOOLEAN NOT NULL DEFAULT FALSE,
+INDEX id_tel(tel)
+)
+
+INSERT INTO t_teacher VALUES(NULL,"张三","18759467518",false)
+
+ALTER TABLE t_teacher
+ADD INDEX idx_tel(tel)
+
+SHOW INDEX FROM t_teacher
+```
+

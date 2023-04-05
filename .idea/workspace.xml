@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bedfeada-835b-4b3a-8955-b0ff2b98c07e" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/TextFileSample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/URLConnectionSample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IO/src/com/imooc/Io/WriterReaderSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/IO/src/com/imooc/Io/WriterReaderSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java.md" beforeDir="false" afterPath="$PROJECT_DIR$/Java.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +158,8 @@
       <workItem from="1680076855508" duration="109000" />
       <workItem from="1680077236677" duration="7987000" />
       <workItem from="1680181447693" duration="2948000" />
+      <workItem from="1680316778570" duration="1598000" />
+      <workItem from="1680683428548" duration="378000" />
     </task>
     <servers />
   </component>
