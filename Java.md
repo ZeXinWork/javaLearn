@@ -1950,6 +1950,50 @@ public class URLConnectionSample {
 
 ### 5、逻辑库与数据表的管理
 
+
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/04/04/117de288-d55e-460a-8260-d098cdeab1bf.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/04/04/03ca23c6-924f-49db-b589-c8b550e11e42.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-1/2023/04/04/1b2d0a9c-bec8-4493-8ba0-cbdfbb79f0a9.png)
+
+```mysql
+use demo;
+
+CREATE TABLE student(
+id INT UNSIGNED NOT NULL PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+sex CHAR(1) NOT NULL,
+birthday DATE NOT NULL,
+tel CHAR(11) NOT NULL,
+remark VARCHAR(200)
+)
+-- 查看所有数据表
+SHOW TABLES;
+-- 查看student表的数据结构
+DESC student;
+-- 查看创建student表的语句
+SHOW CREATE TABLE student;
+-- 删除数据表
+DROP TABLE student;
+-- 插入数据
+INSERT INTO student VALUES(1,"张三","男","2022-10-01","12345678911",NULL)
+-- 在表中新增字段
+ALTER TABLE student
+ADD homeAddress VARCHAR(20) NOT NULL,
+ADD homeTel CHAR(11) NOT NULL
+-- 修改字段类型
+ALTER TABLE student
+MODIFY homeTel VARCHAR(20) NOT NULL
+-- 修改字段名称
+ALTER TABLE student
+CHANGE homeAddress adress VARCHAR(20) NOT NULL
+-- 删除表字段
+ALTER TABLE student
+DROP adress
+```
+
 ### 6、字段约束
 
 #### 1、数据库范式
@@ -2011,3 +2055,95 @@ ADD INDEX idx_tel(tel)
 SHOW INDEX FROM t_teacher
 ```
 
+### 8、数据库基本查询
+
+**查询语句**
+
+1、最基本的查询语句是有select from组成的
+
+```mysql
+SELECT * from t_emp;
+
+SELECT ename,job,sal from t_emp;
+
+SELECT ename,job,sal*12 AS income from t_emp
+```
+
+2、列别名
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/79451ff3-c6b2-43ee-b5dd-4e9c68fea545.png)
+
+**语句的查询顺序，并不是由左到右**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/c149e20c-a69c-4763-adc5-d20c88cbb415.png)
+
+**数据分页**
+
+```mysql
+-- 0表示起始值，5表示偏移量 下面的意思表示为从第一条开始，查询5条数据
+SELECT * from t_emp LIMIT 0,5
+-- 5表示起始值，5表示偏移量 下面的意思表示为从第六条开始，查询5条数据
+SELECT * from t_emp LIMIT 5,5
+```
+
+**查询顺序 form -> select -> limit**
+
+**排序语句**
+
+```mysql
+-- 根据sal 和 hiredate排序 DESC表示降序 ASC表示升序 下面语句表示先执行sal的降序 不能排出结果在执行hiredate的升序
+SELECT * from t_emp ORDER BY sal DESC, hiredate ASC; 
+```
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/1ab26bb8-993e-44d4-be86-efc4b145972b.png)
+
+分页和排序一起用
+
+```mysql
+SELECT * from t_emp ORDER BY sal DESC LIMIT 0,5  
+查询工资最高的五条数据
+```
+
+查询顺序 : from -> select -> order by -> limit
+
+**去重查询**
+
+只能对单独的字段产生作用 不能针对两个字段
+
+```mysql
+--去重
+SELECT DISTINCT job from t_emp;
+```
+
+**条件查询**
+
+**1、where字句**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/5a2a78aa-b36e-4f43-b98a-5290028fa10f.png)
+
+2、四类运算符
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/11fe0f41-f1f6-42af-9c7f-ee3a9efafac9.png)
+
+算数运算符
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/89a9fdab-78b4-466b-99df-06ad1d179003.png)
+
+比较运算符
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/e5106b72-c717-4bbe-8e7a-c22030854ea4.png)
+
+```mysql
+-- 查询年薪大于10000且入职时间在1982年之后的
+SELECT * from t_emp
+WHERE (sal + IFNULL(comm,0)) * 12 >10000 AND hiredate > "1982-01-01"
+
+```
+
+**逻辑运算符**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/52e9b6d8-bf51-4dd7-aac9-686acd6b6c69.png)
+
+**换位运算符**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/448f96d2-6d76-4c38-839d-c4816e8181e2.png)
