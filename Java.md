@@ -2147,3 +2147,116 @@ WHERE (sal + IFNULL(comm,0)) * 12 >10000 AND hiredate > "1982-01-01"
 **换位运算符**
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/06/448f96d2-6d76-4c38-839d-c4816e8181e2.png)
+
+### 9、聚合函数
+
+定义：聚合函数就是一些函数，可以对数据进行求和、求平均数等计算
+
+**聚合函数不能出现在Where子句当中**
+
+#### 1、求平均值函数
+
+ 
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/c3018caa-fa8c-4559-ae20-2641014b44c6.png)
+
+```mysql
+SELECT AVG(sal+IFNULL(comm,0)) as avg FROM t_emp;  --查询月薪平均值
+```
+
+#### 2、求和函数
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/ef9b5e3b-9b28-4114-a997-f7ff5cfe0fb3.png)
+
+```mysql
+SELECT SUM(sal+IFNULL(comm,0)) as sum FROM t_emp; --查询月薪和
+```
+
+#### 3、求最大值函数
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/416b27ac-e7f9-429f-aefd-9b8517750cfd.png)
+
+```mysql
+SELECT MAX(sal+IFNULL(comm,0)) as max FROM t_emp; --查询月薪最大值
+SELECT MAX(sal+IFNULL(comm,0))FROM t_emp WHERE deptno in (10,20) --查询在10,20部门当中最大的月薪
+SELECT MAX(LENGTH(ename)) name FROM t_emp --查询名称最长的
+```
+
+#### 4、求最小值函数
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/ab4acec4-b4fc-462b-8b60-0aabbe223d12.png)
+
+#### 5、求查出来的数据条数的函数
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/5f3b86fe-cd69-4675-ae17-712149ee861a.png)
+
+```mysql
+SELECT COUNT(* ) FROM t_emp --查询结果包含空值
+SELECT COUNT(comm) FROM t_emp --查询结果不包含空值
+SELECT COUNT(*)  from t_emp WHERE sal>2000 AND DATEDIFF(NOW(),hiredate)/365>15 AND deptno IN (10,20)
+--查询月薪超过2000且入职超过15年且在部门10和部门20的员工
+```
+
+### 10、分组查询
+
+**GROUP BY**
+
+**如果有Group By 子句 则 select子句查询的字段只能包含 GROUP BY分组的字段和聚合函数**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/28abd22e-48ab-41d0-a840-b2d21ee58308.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/a5c23c97-cb70-4cd3-8852-8264fdfd3b1c.png)
+
+```MYSQL
+-- select子句查询的字段 deptno | 聚合函数
+SELECT deptno, ROUND(AVG(sal)) FROM t_emp  GROUP BY deptno --根据depno分组
+deptno ROUND(AVG(sal))
+20	   2175
+30	   1567
+10	   2917
+
+SELECT deptno, job,ROUND(AVG(sal)) FROM t_emp  GROUP BY deptno,job
+deptno    job     ROUND(AVG(sal))
+20	      CLERK	    950
+30	      SALESMAN	1400
+20	      MANAGER	2975
+30	      MANAGER	2850
+10	      MANAGER	2450
+20	      ANALYST	3000
+10	      PRESIDENT	5000
+30	      CLERK	    950
+10	      CLERK	    1300
+```
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/a618689f-b7e7-4e0b-a411-5886db343566.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/b00214d4-9e41-419a-9008-b0dd91dcbea2.png)
+
+```mysql
+
+SELECT COUNT(*) deptno, GROUP_CONCAT(ename) FROM t_emp WHERE sal>2000 GROUP BY deptno 
+deptno  ename
+2	    CLARK,KING
+3	    JONES,SCOTT,FORD
+1	    BLAKE
+```
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/b816013f-6cf1-4ddf-852e-bc278a1c594b.png)
+
+
+
+### 12、HAVING子句
+
+**定义：HAVING子句必须跟在GROUP BY子句后面，且不能代替WHERE，他只用来做聚合函数条件判断**
+
+为什么需要HIVING子句？
+
+**因为WHERE语句不能使用聚合函数**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/625f0564-8811-4b0b-bc0f-b415eef2ea7c.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/53156735-cf27-4726-999c-d02d84780845.png)
+
+**HAVING子句当中只能跟具体的值作比较，比如上图的2，如果换成AVG(sal)则会报错**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/c3bbeac1-377b-414d-bc2e-08ce5ebde670.png)
