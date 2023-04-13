@@ -2260,3 +2260,89 @@ deptno  ename
 **HAVING子句当中只能跟具体的值作比较，比如上图的2，如果换成AVG(sal)则会报错**
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/c3bbeac1-377b-414d-bc2e-08ce5ebde670.png)
+
+### 13、连表查询
+
+**定义：从多张表当中提取数据**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/04/13/4e52e459-cf89-4ac0-9ae7-a2f545ddf103.png)
+
+**笛卡尔积：如果没有关联条件，比如表1有10条数据，表2有5条数据，则一共查出50条数据**
+
+#### 1、内连接
+
+**内连接查询的是交集**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/04/13/4f68af90-206e-48e9-bb7d-7d85dd2777ce.png)
+
+```mysql
+-- 查询员工的工号、姓名、部门名称、底薪、职位、工资等级
+SELECT
+e.mgr,e.ename,e.job,d.dname,e.sal,s.grade
+FROM t_dept d JOIN t_emp e ON e.deptno = d.deptno
+JOIN t_salgrade s ON e.sal BETWEEN s.losal AND s.hisal
+
+-- 查询跟SCOTT在同一个部门的员工姓名
+SELECT
+e.ename
+FROM t_emp  d JOIN t_emp e ON e.deptno = d.deptno
+WHERE d.ename="SCOTT"
+
+-- 查询底薪大于公司平均底薪的员工姓名
+SELECT 
+e.ename
+FROM t_emp e JOIN (SELECT AVG(sal) avg FROM t_emp) t ON e.sal >t.avg
+-- SELECT出来的数据也可以作为一张表来进行关联查询
+
+-- 查询RESEARCH部门的人数、最高底薪、最低底薪、平均底薪、平均工龄
+SELECT COUNT(*) count,MAX(e.sal),MIN(e.sal),AVG(e.sal),FLOOR(AVG(DATEDIFF(NOW(),e.hiredate)/365)) FROM t_emp e JOIN t_dept d ON d.deptno=e.deptno WHERE d.dname="RESEARCH" 
+
+-- 查询每种职业的最高工资、最低工资、平均工资、最高工资等级、最低工资等级
+SELECT e.job,MAX(e.sal+IFNULL(e.comm,0)),MIN(e.sal+IFNULL(e.comm,0)),AVG(e.sal+IFNULL(e.comm,0)),MAX(s.grade),MIN(s.grade)
+FROM t_emp e JOIN t_salgrade s
+ON  (e.sal+IFNULL(e.comm,0))  BETWEEN s.losal AND s.hisal
+GROUP BY e.job
+
+-- 查询每隔底薪超过部门平均底薪的员工信息
+SELECT 
+e1.ename,e1.sal,e2.avg,e1.deptno
+FROM t_emp e1 JOIN (SELECT 
+deptno, AVG(sal) avg
+FROM t_emp t GROUP BY deptno) e2 ON e1.sal >e2.avg 
+```
+
+#### 2、外连接
+
+**LEFT JOIN 保留左表所有数据**
+
+**RIGHT JOIN 保留右表所有数据**
+
+**连表查询时，若不符合查询条件的表中数据不会出现在查询结果当中，但使用LEFT或者RIGHT之后仍然会保留结果**
+
+**UNION:保留左右查询的结果**
+
+```mysql
+-- 查询每个部门的人
+SELECT 
+e.ename,e.deptno,d.dname
+FROM t_emp e  LEFT JOIN t_dept d ON e.deptno = d.deptno
+
+
+-- 查询每个部门的名称和人数
+SELECT 
+d.dname,COUNT(e.deptno) number
+FROM t_dept d LEFT JOIN t_emp e ON  d.deptno=e.deptno GROUP BY d.dname
+
+
+-- 查询每个部门的名称和人数
+(SELECT 
+d.dname,COUNT(e.deptno) number
+FROM t_dept d LEFT JOIN t_emp e ON  d.deptno=e.deptno GROUP BY d.dname)
+UNION
+(SELECT 
+d.dname,COUNT(*) number
+FROM t_dept d RIGHT JOIN t_emp e ON  d.deptno=e.deptno GROUP BY d.dname)
+
+```
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/13/0387444f-1184-4cd6-b120-7f0219c37a8b.png)
