@@ -2201,11 +2201,19 @@ SELECT COUNT(*)  from t_emp WHERE sal>2000 AND DATEDIFF(NOW(),hiredate)/365>15 A
 
 **GROUP BY**
 
+**逐级分组，用,隔开**
+
+**如下表示现根据部门编号进行分组，然后再根据每个部门里的job进行分组**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/09/06/c72a29f2-b649-4d0c-b79f-f09524eefba9.png)
+
 **如果有Group By 子句 则 select子句查询的字段只能包含 GROUP BY分组的字段和聚合函数**
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/28abd22e-48ab-41d0-a840-b2d21ee58308.png)
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/a5c23c97-cb70-4cd3-8852-8264fdfd3b1c.png)
+
+**为什么要做这种限制?**原因是因为sal查询出来的可能是多条数据，不匹配，其他查询出来的都是一条
 
 ```MYSQL
 -- select子句查询的字段 deptno | 聚合函数
@@ -2230,6 +2238,8 @@ deptno    job     ROUND(AVG(sal))
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/a618689f-b7e7-4e0b-a411-5886db343566.png)
 
+**最后一行为汇总结果**
+
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/b00214d4-9e41-419a-9008-b0dd91dcbea2.png)
 
 ```mysql
@@ -2239,6 +2249,8 @@ deptno  ename
 2	    CLARK,KING
 3	    JONES,SCOTT,FORD
 1	    BLAKE
+
+cleark,king被拼接
 ```
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/11/b816013f-6cf1-4ddf-852e-bc278a1c594b.png)
@@ -2346,3 +2358,9 @@ FROM t_dept d RIGHT JOIN t_emp e ON  d.deptno=e.deptno GROUP BY d.dname)
 ```
 
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-100001/2023/04/13/0387444f-1184-4cd6-b120-7f0219c37a8b.png)
+
+### 14、子查询
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/09/06/f895bdc6-106c-49ea-bc45-c88715d29058.png)
+
+**不推荐，效率低下**
