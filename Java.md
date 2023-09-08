@@ -2364,3 +2364,28 @@ FROM t_dept d RIGHT JOIN t_emp e ON  d.deptno=e.deptno GROUP BY d.dname)
 ![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/09/06/f895bdc6-106c-49ea-bc45-c88715d29058.png)
 
 **不推荐，效率低下**
+
+### 15、insert语句
+
+**INSERT INTO t_dept(deptno,dname,loc) VALUES (60,"后勤","北京"),(70,"研发","上海")**
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/09/08/0d61eb31-0309-41ef-955a-f1f4cc8d6ef5.png)
+
+![](https://static.roi-cloud.com/youshu_file/youshu-enterprise-10019/2023/09/08/5efdc7e7-d392-4b7b-b8ea-2c1548421191.png)
+
+### 16、UPDATE
+
+语法：UPDATE 表 SET val1=value1,val2=value2
+
+表连接
+
+```sql
+UPDATE t_emp e JOIN t_dept t
+SET e.deptno = t.deptno
+WHERE t.dname="RESEARCH" AND e.ename="ALLEN"
+```
+
+以上没有写on连接语句
+
+外连接
+
