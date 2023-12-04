@@ -13,6 +13,8 @@
       <module fileurl="file://$PROJECT_DIR$/collection/collection.iml" filepath="$PROJECT_DIR$/collection/collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/functionDemo/functionDemo.iml" filepath="$PROJECT_DIR$/functionDemo/functionDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/intel/intel.iml" filepath="$PROJECT_DIR$/intel/intel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc.iml" filepath="$PROJECT_DIR$/jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc-sample/jdbc-sample.iml" filepath="$PROJECT_DIR$/jdbc-sample/jdbc-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/neibuClass/neibuClass.iml" filepath="$PROJECT_DIR$/neibuClass/neibuClass.iml" />
       <module fileurl="file://$PROJECT_DIR$/objectP/objectP.iml" filepath="$PROJECT_DIR$/objectP/objectP.iml" />
     </modules>

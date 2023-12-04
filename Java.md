@@ -2389,3 +2389,66 @@ WHERE t.dname="RESEARCH" AND e.ename="ALLEN"
 
 外连接
 
+### 17、DELETE
+
+**语法：DELETE 表 FROM 表 JOIN 表 ON** 
+
+**TRUNCATE TABLE t_emp 清空表**
+
+## 十一、JDBC
+
+### 1 jdbc的含义
+
+简单来说，就是java代码与数据库之间的连接
+
+创建数据库时，字符集utf8和utf8mb4有什么区别  utf8用三个字符表达复杂字符，而utfmb4用四个字符表达，比如emoj 表情包则用三个字符不够
+
+2 jdbc的用法
+
+```java
+package com.immoc.jdbc.sample;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class CreateJDBC {
+    public static void main(String[] args) {
+        Connection conn = null;
+        try {
+            //1. 加载并注册JDBC驱动
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //2. 创建数据库连接
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/immocjdbc?          useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai",
+                    "root", "admin123"
+            );
+            //3. 创建Statement对象
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from employee where dname='研发部'");
+            //4. 遍历查询结果
+            while (rs.next()) {
+                Integer eno = rs.getInt(1); //eno
+                String ename = rs.getString("ename");
+                Float salary = rs.getFloat("salary");
+                String dname = rs.getString("dname");
+                System.out.println(dname + "-" + eno + "-" + ename + "-" + salary);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (conn != null && conn.isClosed() == false) {
+                    //5. 关闭连接,释放资源
+                    conn.close();
+                }
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }
+}
+
+```
+
